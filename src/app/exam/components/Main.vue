@@ -143,7 +143,7 @@
 
 <script>
 
-import { delay } from 'lodash';
+import { delay } from 'lodash'
 
 export default {
   name: 'subject',
@@ -166,12 +166,12 @@ export default {
       .then((response) => {
         this.exam = response.data.exam
         this.answerQuestion = this.exam.questions[this.questionIndex].user_answer
-      });
+      })
     },
     next () {
-      this.loading = true;
+      this.loading = true
       delay(() => {
-        this.questionIndex += 1;
+        this.questionIndex += 1
         if (this.exam.questions[this.questionIndex] !== undefined) {
           this.answerQuestion = this.exam.questions[this.questionIndex].user_answer
         } else {
@@ -182,7 +182,7 @@ export default {
       }, 500)
     },
     prev () {
-      this.loading = true;
+      this.loading = true
       delay(() => {
         this.questionIndex -= 1
         this.answerQuestion = this.exam.questions[this.questionIndex].user_answer
@@ -196,7 +196,7 @@ export default {
         choosed: this.answerQuestion
       }).then(() => {
         this.exam.questions[this.questionIndex].user_answer = this.answerQuestion
-      });
+      })
     },
     selectQuestion (index, answer) {
       this.questionIndex = index
