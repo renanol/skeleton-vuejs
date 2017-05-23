@@ -147,74 +147,74 @@ import { delay } from 'lodash';
 
 export default {
   name: 'subject',
-  data() {
+  data () {
     return {
       exam: '',
       url: '',
       questionIndex: 0,
       loading: false,
       answerQuestion: 0,
-      showDialogQuestion: false,
-    };
+      showDialogQuestion: false
+    }
   },
-  mounted() {
-    this.getSubjects();
+  mounted () {
+    this.getSubjects()
   },
   methods: {
-    getSubjects() {
+    getSubjects () {
       this.$http.get(`http://teste.ead.fractaltecnologia.com.br/api/v1/groups/${this.$route.params.id}`)
       .then((response) => {
-        this.exam = response.data.exam;
-        this.answerQuestion = this.exam.questions[this.questionIndex].user_answer;
+        this.exam = response.data.exam
+        this.answerQuestion = this.exam.questions[this.questionIndex].user_answer
       });
     },
-    next() {
+    next () {
       this.loading = true;
       delay(() => {
         this.questionIndex += 1;
         if (this.exam.questions[this.questionIndex] !== undefined) {
-          this.answerQuestion = this.exam.questions[this.questionIndex].user_answer;
+          this.answerQuestion = this.exam.questions[this.questionIndex].user_answer
         } else {
-          this.questionIndex -= 1;
-          this.showDialogQuestion = true;
+          this.questionIndex -= 1
+          this.showDialogQuestion = true
         }
-        this.loading = false;
-      }, 500);
+        this.loading = false
+      }, 500)
     },
-    prev() {
+    prev () {
       this.loading = true;
       delay(() => {
-        this.questionIndex -= 1;
-        this.answerQuestion = this.exam.questions[this.questionIndex].user_answer;
-        this.loading = false;
-      }, 500);
+        this.questionIndex -= 1
+        this.answerQuestion = this.exam.questions[this.questionIndex].user_answer
+        this.loading = false
+      }, 500)
     },
-    checkAnswer(questionId) {
+    checkAnswer (questionId) {
       this.$http.post('http://teste.ead.fractaltecnologia.com.br/api/v1/exams/submit_question', {
         exam_id: this.exam.id,
         question_id: questionId,
-        choosed: this.answerQuestion,
+        choosed: this.answerQuestion
       }).then(() => {
-        this.exam.questions[this.questionIndex].user_answer = this.answerQuestion;
+        this.exam.questions[this.questionIndex].user_answer = this.answerQuestion
       });
     },
-    selectQuestion(index, answer) {
-      this.questionIndex = index;
-      this.answerQuestion = answer;
-      this.showDialogQuestion = false;
+    selectQuestion (index, answer) {
+      this.questionIndex = index
+      this.answerQuestion = answer
+      this.showDialogQuestion = false
     },
-    showDialog() {
-      this.showDialogQuestion = true;
+    showDialog () {
+      this.showDialogQuestion = true
     },
-    finishExam() {
+    finishExam () {
       this.$http.post('/exams/finish_exam', {
-        exam_id: this.exam.id,
+        exam_id: this.exam.id
       }).then(() => {
-        this.dialogFormVisible = false;
-      });
-    },
-  },
-};
+        this.dialogFormVisible = false
+      })
+    }
+  }
+}
 </script>
 
 <style lang="css">

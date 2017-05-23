@@ -1,7 +1,7 @@
-import { routes as app } from '../app';
+import { routes as app } from '../app'
 
 const root = [
-  { path: '/', redirect: '/tasks' },
-];
+  { path: '/', redirect: '/tasks' }
+]
 
-export default [...root, ...app];
+export default [...root, ...app]

@@ -1,18 +1,18 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import { routes as app } from '../app';
-import beforeEach from './beforeEach';
+import Vue from 'vue'
+import Router from 'vue-router'
+import { routes as app } from '../app'
+import beforeEach from './beforeEach'
 
-Vue.use(Router);
+Vue.use(Router)
 
-const routes = [...app];
+const routes = [...app]
 
 const router = new Router({
   routes,
   linkActiveClass: 'active',
-  mode: 'history',
-});
+  mode: 'history'
+})
 
-router.beforeEach(beforeEach);
+router.beforeEach(beforeEach)
 
-export default router;
+export default router

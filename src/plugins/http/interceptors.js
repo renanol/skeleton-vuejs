@@ -8,16 +8,16 @@ export default (http, store, router) => {
     * requests
     */
     (error) => {
-      const { response } = error;
+      const { response } = error
       /**
       * If token is either expired, not provided or invalid
       * then redirect to login. On server side the error
       * messages can be changed on app/Providers/EventServiceProvider.php
       */
       if ([401, 400].indexOf(response.status) > -1) {
-        router.push({ name: 'auth.main' });
+        router.push({ name: 'auth.main' })
       }
-      return Promise.reject(error);
-    },
-  );
-};
+      return Promise.reject(error)
+    }
+  )
+}
