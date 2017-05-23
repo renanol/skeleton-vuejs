@@ -1,20 +1,20 @@
-import store from '../vuex';
+import store from '../vuex'
 
-const needAuth = auth => auth === true;
+const needAuth = auth => auth === true
 
 const beforeEach = (to, from, next) => {
-  const auth = to.meta.requiresAuth;
+  const auth = to.meta.requiresAuth
   if (!needAuth(auth)) {
-    next();
-    return;
+    next()
+    return
   }
   store.dispatch('checkUserToken')
   .then(() => {
-    next();
+    next()
   })
   .catch(() => {
-    next({ name: 'auth.main' }); // redirect to login
-  });
-};
+    next({ name: 'auth.main' }) // redirect to login
+  })
+}
 
-export default beforeEach;
+export default beforeEach

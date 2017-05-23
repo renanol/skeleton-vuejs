@@ -1,3 +1,3 @@
-import { routes as auth } from './auth';
+import { routes as auth } from './auth'
 
-export default [...auth];
+export default [...auth]

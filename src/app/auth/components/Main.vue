@@ -5,20 +5,20 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import Login from './forms/Login';
+import { mapGetters } from 'vuex'
+import Login from './forms/Login'
 
 export default {
   name: 'auth',
   components: {
-    Login,
+    Login
   },
-  created() {
+  created () {
   },
   computed: {
-    ...mapGetters(['isLogged']),
-  },
-};
+    ...mapGetters(['isLogged'])
+  }
+}
 
 </script>
 

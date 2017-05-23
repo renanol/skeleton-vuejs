@@ -5,17 +5,17 @@
     </div>
   </template>
 <script>
-  import { mapGetters } from 'vuex';
-  import RootHeader from 'components/root/Header';
+  import { mapGetters } from 'vuex'
+  import RootHeader from 'components/root/Header'
 
   export default {
     name: 'App',
     components: { RootHeader },
-    created() {},
+    created () {},
     computed: {
-      ...mapGetters(['shouldShowNavigation']),
-    },
-  };
+      ...mapGetters(['shouldShowNavigation'])
+    }
+  }
 </script>
 
 <style src="assets/stylesheets/app.scss" lang="scss"/>

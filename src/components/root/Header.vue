@@ -43,29 +43,29 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  created() {
-    document.body.className = 'layout-h';
+  created () {
+    document.body.className = 'layout-h'
   },
   computed: {
-    ...mapGetters(['currentUser', 'isLogged']),
+    ...mapGetters(['currentUser', 'isLogged'])
   },
   watch: {
-    isLogged(value) { // isLogged changes when the token changes
+    isLogged (value) { // isLogged changes when the token changes
       if (value === false) {
-        this.$router.push({ name: 'auth.main' });
+        this.$router.push({ name: 'auth.main' })
       }
-    },
+    }
   },
   methods: {
     ...mapActions(['logout']),
-    logoutUser() {
-      this.logout();
-    },
-  },
-};
+    logoutUser () {
+      this.logout()
+    }
+  }
+}
 </script>
 
 <style lang="css">
