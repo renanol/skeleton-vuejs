@@ -1,6 +1,6 @@
-# CRM Saraiva
+# Skeleton Vuejs with Login
 
-> CRM Saraiva
+> Skeleton Vuejs with Login
 
 ## NVM setup
 
